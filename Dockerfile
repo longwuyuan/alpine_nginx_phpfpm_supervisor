@@ -1,6 +1,6 @@
 From alpine
 
-COPY conf/ /tmp/
+COPY conf/ /tmp
 
 RUN apk -U update && \
     apk upgrade && \
