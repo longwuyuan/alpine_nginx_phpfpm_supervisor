@@ -25,7 +25,9 @@ RUN apk add nginx \
     php7-xml \
     php7-mbstring \
     php7-pdo_mysql \
-    php7-zip && \
+    php7-zip \
+    py2-pip && \
+    pip install supervisor && \
     mkdir -p /code /etc/supervisor.d /run/php /var/log/supervisor && \
     touch /var/log/php7/fpm_error.log && \
     rm -f /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf /etc/php7/php.ini /etc/php7/php-fpm.d/www.conf
