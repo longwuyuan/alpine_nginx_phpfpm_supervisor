@@ -38,15 +38,9 @@ RUN apk add bash \
     php7-zlib \
     nginx \
     supervisor && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer && \
-    ln -s /etc/php7 /etc/php && \
-    ln -s /usr/bin/php7 /usr/bin/php && \
-    ln -s /usr/sbin/php-fpm7 /usr/bin/php-fpm && \
-    ln -s /usr/lib/php7 /usr/lib/php && \
     mkdir -p /code /etc/supervisor.d /run/php /var/log/supervisord && \
     touch /var/log/php7/fpm_error.log && \
     rm -f /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf /etc/php7/php.ini /etc/php7/php-fpm.d/www.conf /etc/supervisord.conf
-
 
 # Copy our custom nginx & fpm config (scraped from current infrastructure but still lots to scrape)
 COPY supervisord.conf /etc/supervisord.conf
