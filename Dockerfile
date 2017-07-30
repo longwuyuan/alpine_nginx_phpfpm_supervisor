@@ -57,4 +57,4 @@ COPY phptest.php /var/www/localhost/htdocs/phptest.php
 
 EXPOSE 80
 
-CMD /bin/sh /usr/bin/supervisord -n -c /etc/supervisord.conf
+CMD /usr/bin/supervisord
