@@ -30,14 +30,15 @@ RUN apk add nginx \
     pip install supervisor && \
     mkdir -p /code /etc/supervisor.d /run/php /var/log/supervisor && \
     touch /var/log/php7/fpm_error.log && \
-    rm -f /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf /etc/php7/php.ini /etc/php7/php-fpm.d/www.conf
+    rm -f /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf /etc/php7/php.ini /etc/php7/php-fpm.d/www.conf /etc/supervisord.conf
 
 # Copy our custom nginx & fpm config (scraped from current infrastructure but still lots to scrape)
-COPY supervisor_nginx.ini /etc/supervisor.d/supervisor_nginx.ini
-COPY supervisor_phpfpm.ini /etc/supervisor.d/supervisor_phpfpm.ini
+
+COPY supervisord.conf /etc/supervisord.conf
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY default.conf /etc/nginx/conf.d/default.conf
 COPY site.conf /etc/nginx/conf.d/site.conf
+COPY listener.php /listener.php
 COPY php.ini /etc/php7/php.ini
 COPY www.conf /etc/php7/php-fpm.d/www.conf
 COPY phptest.php /var/www/localhost/htdocs/phptest.php
