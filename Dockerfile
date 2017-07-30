@@ -1,7 +1,6 @@
 From longwuyuan/alpine
 
 RUN apk add nginx \
-    php7-fpm \
     make \
     pcre-dev \
     pkgconf \
@@ -15,13 +14,14 @@ RUN apk add nginx \
     tar \
     xz \
     ca-certificates \
+    php7 \
+    php7-fpm \
     php7-mysqli \
     php7-mcrypt \
     php7-gd \
     php7-curl \
-    php7 \
     php7-common \
-    php-json \
+    php7-json \
     php7-xml \
     php7-mbstring \
     php7-pdo_mysql \
