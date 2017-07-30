@@ -1,6 +1,9 @@
-From longwuyuan/alpine
+From alpine
 
-RUN apk add bash \
+RUN apk -U update && \
+    apk upgrade && \
+    apk add curl tcpdump lsof iperf nmap openssh-client \
+    bash \
     gettext \
     tzdata \
     make \
