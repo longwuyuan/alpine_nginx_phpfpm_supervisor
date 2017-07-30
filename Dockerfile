@@ -1,6 +1,6 @@
 From alpine
 
-COPY conf /tmp
+COPY conf/. /tmp
 
 RUN apk -U update && \
     apk upgrade && \
@@ -47,14 +47,14 @@ RUN apk -U update && \
     touch /var/log/php7/fpm_error.log /var/log/nginx/default/access.log /var/log/nginx/default/error.log /var/log/nginx/site/access.log /var/log/nginx/site/error.log && \
     rm -f /etc/supervisord.conf /etc/nginx/nginx.conf /etc/nginx/conf.d/default.conf /etc/php7/php.ini /etc/php7/php-fpm.d/www.conf  && \
 # Copy our custom nginx & fpm config (scraped from current infrastructure but still lots to scrape)
-    mv /tmp/conf/supervisord.conf /etc/supervisord.conf && \
-    mv /tmp/conf/nginx.conf /etc/nginx/nginx.conf && \
-    mv /tmp/conf/default.conf /etc/nginx/conf.d/default.conf && \
-    mv /tmp/conf/site.conf /etc/nginx/conf.d/site.conf && \
-    mv /tmp/conf/listener.php /listener.php && \
-    mv /tmp/conf/php.ini /etc/php7/php.ini && \
-    mv /tmp/conf/www.conf /etc/php7/php-fpm.d/www.conf && \
-    mv /tmp/conf/phptest.php /var/www/localhost/htdocs/phptest.php
+    mv /tmp/supervisord.conf /etc/supervisord.conf && \
+    mv /tmp/nginx.conf /etc/nginx/nginx.conf && \
+    mv /tmp/default.conf /etc/nginx/conf.d/default.conf && \
+    mv /tmp/site.conf /etc/nginx/conf.d/site.conf && \
+    mv /tmp/listener.php /listener.php && \
+    mv /tmp/php.ini /etc/php7/php.ini && \
+    mv /tmp/www.conf /etc/php7/php-fpm.d/www.conf && \
+    mv /tmp/phptest.php /var/www/localhost/htdocs/phptest.php
 
 EXPOSE 80
 
