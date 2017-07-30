@@ -1,9 +1,8 @@
 From longwuyuan/alpine
 
-RUN apk add nginx php7-fpm
-
-# Install stuff we need
-    apk add make \
+RUN apk add nginx \
+    php7-fpm \
+    make \
     pcre-dev \
     pkgconf \
     re2c \
